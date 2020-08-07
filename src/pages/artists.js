@@ -1,9 +1,12 @@
 import { Helmet } from 'react-helmet'
+import Layout from '../components/layout'
+import Paper from '@material-ui/core/Paper'
 import React from 'react'
 import { graphql } from 'gatsby'
 import styles from './blog.module.css'
 
 const Artists = ({
+  location,
   data: {
     site: {
       siteMetadata: { title: siteTitle },
@@ -11,15 +14,12 @@ const Artists = ({
     allContentfulArtist: { edges: artists },
   },
 }) => (
-  <div style={{ background: '#fff' }}>
-    <Helmet title={siteTitle} />
-    <div className={styles.hero}>Artists</div>
-    <div className="wrapper">
-      {artists.map(({ node: artist }) => (
-        <pre>{JSON.stringify(artist)}</pre>
-      ))}
-    </div>
-  </div>
+  <Layout location={location}>
+    <Helmet title={`${siteTitle} Artists`} />
+    {artists.map(({ node: artist }) => (
+      <Paper>{JSON.stringify(artist)}</Paper>
+    ))}
+  </Layout>
 )
 
 export default Artists

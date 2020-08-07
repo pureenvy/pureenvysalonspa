@@ -1,9 +1,11 @@
 import { Helmet } from 'react-helmet'
+import Layout from '../components/layout'
+import Paper from '@material-ui/core/Paper'
 import React from 'react'
 import { graphql } from 'gatsby'
-import styles from './blog.module.css'
 
 const Services = ({
+  location,
   data: {
     site: {
       siteMetadata: { title: siteTitle },
@@ -11,15 +13,12 @@ const Services = ({
     allContentfulService: { edges: services },
   },
 }) => (
-  <div style={{ background: '#fff' }}>
-    <Helmet title={siteTitle} />
-    <div className={styles.hero}>Services</div>
-    <div className="wrapper">
-      {services.map(({ node: service }) => (
-        <pre>{JSON.stringify(service)}</pre>
-      ))}
-    </div>
-  </div>
+  <Layout location={location}>
+    <Helmet title={`${siteTitle} Services`} />
+    {services.map(({ node: service }) => (
+      <Paper>{JSON.stringify(service)}</Paper>
+    ))}
+  </Layout>
 )
 
 export default Services
