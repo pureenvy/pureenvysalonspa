@@ -25,9 +25,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Pure Envy Salon & Spa',
   },
-  pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-plugin-material-ui',
     'gatsby-transformer-remark',
