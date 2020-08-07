@@ -3,47 +3,41 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styles from './blog.module.css'
 
-const Artists = ({
+const Services = ({
   data: {
     site: {
       siteMetadata: { title: siteTitle },
     },
-    allContentfulArtist: { edges: artists },
+    allContentfulService: { edges: services },
   },
 }) => (
   <div style={{ background: '#fff' }}>
     <Helmet title={siteTitle} />
-    <div className={styles.hero}>Artists</div>
+    <div className={styles.hero}>Services</div>
     <div className="wrapper">
-      {artists.map(({ node: artist }) => (
-        <pre>{JSON.stringify(artist)}</pre>
+      {services.map(({ node: service }) => (
+        <pre>{JSON.stringify(service)}</pre>
       ))}
     </div>
   </div>
 )
 
-export default Artists
+export default Services
 
 export const pageQuery = graphql`
-  query ArtistQuery {
+  query ServiceQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulArtist(sort: { fields: [sort] }) {
+    allContentfulService(sort: { fields: [category] }) {
       edges {
         node {
           name
-          title
-          bio {
-            json
-          }
-          image {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
+          category
+          price
+          doesPriceGoUp
         }
       }
     }
