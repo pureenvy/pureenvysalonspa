@@ -4,44 +4,41 @@ import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
+import Card from '@material-ui/core/Card'
+import CardMedia from '@material-ui/core/CardMedia'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles, createStyles } from '@material-ui/core/styles'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import heroStyles from '../components/hero.module.css'
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    card: {
+      marginBottom: theme.spacing(3),
+    },
+  })
+)
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+const BlogPostTemplate = (props) => {
+  const post = get(props, 'data.contentfulBlogPost')
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
+  const classes = useStyles()
 
-    return (
-      <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
-          </div>
-          <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
-              {post.publishDate}
-            </p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
-          </div>
-        </div>
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={props.location}>
+      <Helmet title={`${siteTitle} - ${post.title}`} />
+      {post.heroImage && (
+        <Card className={classes.card}>
+          <CardMedia>
+            <Img alt="" fluid={post.heroImage.fluid} />
+          </CardMedia>
+        </Card>
+      )}
+      <Typography gutterBottom variant="h4" component="h2">
+        {post.title}
+      </Typography>
+      {documentToReactComponents(post.body.json)}
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate
@@ -62,9 +59,7 @@ export const pageQuery = graphql`
         }
       }
       body {
-        childMarkdownRemark {
-          html
-        }
+        json
       }
     }
   }
