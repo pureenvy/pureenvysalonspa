@@ -3,6 +3,17 @@ import Layout from '../components/layout'
 import Paper from '@material-ui/core/Paper'
 import React from 'react'
 import { graphql } from 'gatsby'
+import Typography from '@material-ui/core/Typography'
+import Service from '../components/service'
+
+const categorySort = {
+  Hair: 0,
+  'Lashes and Makeup': 1,
+  Nails: 2,
+  Waxing: 3,
+  Tanning: 4,
+  Esthetics: 5,
+}
 
 const Services = ({
   location,
@@ -12,14 +23,44 @@ const Services = ({
     },
     allContentfulService: { edges: services },
   },
-}) => (
-  <Layout location={location}>
-    <Helmet title={`${siteTitle} Services`} />
-    {services.map(({ node: service }) => (
-      <Paper>{JSON.stringify(service)}</Paper>
-    ))}
-  </Layout>
-)
+}) => {
+  services.sort(function (a, b) {
+    var nameA = a.node.category
+    var nameB = b.node.category
+    if (categorySort[nameA] < categorySort[nameB]) {
+      return -1
+    }
+    if (categorySort[nameA] > categorySort[nameB]) {
+      return 1
+    }
+    return 0
+  })
+
+  let curCat = ''
+
+  return (
+    <Layout location={location}>
+      <Helmet title={`${siteTitle} - Services`} />
+      {services.map(({ node: service }) => {
+        const comp = <Service name={service.name} price={service.price} doesPriceGoUp={service.doesPriceGoUp} />
+
+        if (curCat != service.category) {
+          curCat = service.category
+          return (
+            <>
+              <Typography gutterBottom variant="h4" component="h2">
+                {curCat}
+              </Typography>
+              {comp}
+            </>
+          )
+        }
+
+        return comp
+      })}
+    </Layout>
+  )
+}
 
 export default Services
 

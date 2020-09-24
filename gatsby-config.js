@@ -28,7 +28,7 @@ module.exports = {
     title: 'Pure Envy Salon & Spa',
   },
   plugins: [
-    'gatsby-plugin-material-ui',
+    'gatsby-theme-material-ui',
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',

@@ -15,11 +15,15 @@ import ListItemText from '@material-ui/core/ListItemText'
 import MenuBookIcon from '@material-ui/icons/MenuBook'
 import MenuIcon from '@material-ui/icons/Menu'
 import PeopleIcon from '@material-ui/icons/People'
+import LocalMallIcon from '@material-ui/icons/LocalMall'
+import ExploreIcon from '@material-ui/icons/Explore'
+import PolicyIcon from '@material-ui/icons/Policy'
+import EventIcon from '@material-ui/icons/Event'
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 
-const drawerWidth = 240
+const drawerWidth = 280
 
 const navigation = [
   {
@@ -28,11 +32,20 @@ const navigation = [
     link: '/',
   },
   {
+    text: 'Schedule an Appointment',
+    icon: <EventIcon />,
+    link: 'http://envysalonblm.mysalononline.com/Booking/?sid=0',
+    target: '_blank',
+  },
+  {
     text: 'Artists',
     icon: <PeopleIcon />,
     link: '/artists',
   },
   { text: 'Services', icon: <MenuBookIcon />, link: '/services' },
+  { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
+  { text: 'Location & Hours', icon: <ExploreIcon />, link: '/location' },
+  { text: 'Policies', icon: <PolicyIcon />, link: '/policies' },
 ]
 
 const useStyles = makeStyles((theme) => ({
@@ -84,8 +97,8 @@ function Container(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {navigation.map(({ text, icon, link }) => (
-          <ListItem button component="a" key={text} href={link}>
+        {navigation.map(({ text, icon, link, target }) => (
+          <ListItem button component="a" key={text} href={link} target={target}>
             <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -153,6 +166,9 @@ function Container(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {children}
+        <Typography align="center" variant="caption" component="p">
+          &copy; {new Date().getFullYear()} Pure Envy Salon & Spa
+        </Typography>
       </main>
     </div>
   )

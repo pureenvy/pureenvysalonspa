@@ -1,9 +1,10 @@
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
-import Paper from '@material-ui/core/Paper'
 import React from 'react'
 import { graphql } from 'gatsby'
-import styles from './blog.module.css'
+import Artist from '../components/artist'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Img from 'gatsby-image'
 
 const Artists = ({
   location,
@@ -15,9 +16,16 @@ const Artists = ({
   },
 }) => (
   <Layout location={location}>
-    <Helmet title={`${siteTitle} Artists`} />
+    <Helmet title={`${siteTitle} - Artists`} />
     {artists.map(({ node: artist }) => (
-      <Paper>{JSON.stringify(artist)}</Paper>
+      <Artist
+        name={artist.name}
+        title={artist.title}
+        bio={documentToReactComponents(artist.bio.json)}
+        image={<Img alt={artist.name} fluid={artist.image.fluid} />}
+        instagramUrl={artist.instagram}
+        facebookUrl={artist.facebook}
+      />
     ))}
   </Layout>
 )
@@ -39,8 +47,10 @@ export const pageQuery = graphql`
           bio {
             json
           }
+          facebook
+          instagram
           image {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            fluid(maxWidth: 350, resizingBehavior: PAD, background: "rgb:ffffff") {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
