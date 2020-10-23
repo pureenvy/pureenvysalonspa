@@ -21,6 +21,7 @@ import EventIcon from '@material-ui/icons/Event'
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import HangerIcon from './icons/hanger'
 
 const drawerWidth = 280
 
@@ -41,7 +42,13 @@ const navigation = [
     icon: <PeopleIcon />,
     link: '/artists',
   },
-  { text: 'Services', icon: <MenuBookIcon />, link: '/services' },
+  { text: 'Expirences', icon: <MenuBookIcon />, link: '/expirences' },
+  {
+    text: 'PE Boutique',
+    icon: <HangerIcon />,
+    link: 'http://envysalonblm.mysalononline.com/Booking/?sid=0',
+    target: '_blank',
+  },
   { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
   { text: 'Location & Hours', icon: <ExploreIcon />, link: '/location' },
   { text: 'Policies', icon: <PolicyIcon />, link: '/policies' },

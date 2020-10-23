@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) =>
   })
 )
 
-export default function Service({ name, price, doesPriceGoUp }) {
+export default function Expirence({ name, price, doesPriceGoUp }) {
   const classes = useStyles()
   return (
     <Paper className={classes.root}>
