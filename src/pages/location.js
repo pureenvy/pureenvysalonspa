@@ -27,7 +27,7 @@ const LocationAndHours = ({
     })}
     <p>
       <iframe
-        src="http://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=&amp;daddr=40.488609,-88.950339&amp;hl=en&amp;geocode=&amp;sll=40.488609,-88.950339&amp;sspn=0.012501,0.017531&amp;mra=mift&amp;mrsp=1&amp;sz=16&amp;ie=UTF8&amp;t=m&amp;z=15&amp;output=embed"
+        src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=&amp;daddr=40.488609,-88.950339&amp;hl=en&amp;geocode=&amp;sll=40.488609,-88.950339&amp;sspn=0.012501,0.017531&amp;mra=mift&amp;mrsp=1&amp;sz=16&amp;ie=UTF8&amp;t=m&amp;z=15&amp;output=embed"
         width="100%"
         height="350"
         frameborder="0"

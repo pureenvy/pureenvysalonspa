@@ -5,7 +5,6 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
 import { Helmet } from 'react-helmet'
-import Hidden from '@material-ui/core/Hidden'
 import HomeIcon from '@material-ui/icons/Home'
 import IconButton from '@material-ui/core/IconButton'
 import List from '@material-ui/core/List'
@@ -22,6 +21,7 @@ import EventIcon from '@material-ui/icons/Event'
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import HangerIcon from './icons/hanger'
 
 const drawerWidth = 280
 
@@ -42,7 +42,13 @@ const navigation = [
     icon: <PeopleIcon />,
     link: '/artists',
   },
-  { text: 'Services', icon: <MenuBookIcon />, link: '/services' },
+  { text: 'Expirences', icon: <MenuBookIcon />, link: '/expirences' },
+  {
+    text: 'PE Boutique',
+    icon: <HangerIcon />,
+    link: 'http://envysalonblm.mysalononline.com/Booking/?sid=0',
+    target: '_blank',
+  },
   { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
   { text: 'Location & Hours', icon: <ExploreIcon />, link: '/location' },
   { text: 'Policies', icon: <PolicyIcon />, link: '/policies' },
@@ -50,25 +56,10 @@ const navigation = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-  },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-  appBar: {
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -76,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   content: {
-    flexGrow: 1,
     padding: theme.spacing(3),
   },
 }))
@@ -133,8 +123,6 @@ function Container(props) {
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
           <Drawer
             container={container}
             variant="temporary"
@@ -150,18 +138,6 @@ function Container(props) {
           >
             {drawer}
           </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />

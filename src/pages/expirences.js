@@ -1,10 +1,9 @@
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
-import Paper from '@material-ui/core/Paper'
 import React from 'react'
 import { graphql } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
-import Service from '../components/service'
+import Expirence from '../components/expirence'
 
 const categorySort = {
   Hair: 0,
@@ -40,9 +39,9 @@ const Services = ({
 
   return (
     <Layout location={location}>
-      <Helmet title={`${siteTitle} - Services`} />
+      <Helmet title={`${siteTitle} - Expirences`} />
       {services.map(({ node: service }) => {
-        const comp = <Service name={service.name} price={service.price} doesPriceGoUp={service.doesPriceGoUp} />
+        const comp = <Expirence name={service.name} price={service.price} doesPriceGoUp={service.doesPriceGoUp} />
 
         if (curCat != service.category) {
           curCat = service.category
