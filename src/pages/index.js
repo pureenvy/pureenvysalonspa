@@ -7,6 +7,8 @@ import Img from 'gatsby-image'
 import SocialMedia from '../components/socialmedia'
 import Featured from '../components/featured'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 class RootIndex extends React.Component {
   render() {
@@ -14,10 +16,22 @@ class RootIndex extends React.Component {
     const homepageImages = get(this, 'props.data.allContentfulAsset.edges')
     const [site] = get(this, 'props.data.allContentfulSite.edges')
 
+    const responsive = {
+      0: { items: 1 }}
+
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        {homepageImages.map((image) => <Img alt={image.node.title} fluid={image.node.fluid} />)}
+        <AliceCarousel 
+          items={homepageImages.map((image) => <div style={{textAlign: 'center'}}><Img alt={image.node.title} fixed={image.node.fixed} /></div>)} 
+          mouseTracking
+          autoPlay
+          infinite
+          autoPlayStrategy="action"
+          autoPlayInterval={3000}
+          responsive={responsive}
+          disableButtonsControls
+        />
         {documentToReactComponents(site.node.description.json)}
         <Featured />
         <SocialMedia
@@ -59,10 +73,9 @@ export const pageQuery = graphql`
     allContentfulAsset(filter: {description: {regex: "/(\\[homepage\\])/gm"}}) {
       edges {
         node {
-          fluid(resizingBehavior: PAD, maxWidth: 1180, maxHeight: 480, background: "rgb:fafafa") {
-            ...GatsbyContentfulFluid_tracedSVG
+          fixed(width:480) {
+            ...GatsbyContentfulFixed_tracedSVG
           }
-          title
         }
       }
     }

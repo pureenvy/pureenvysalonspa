@@ -56,7 +56,7 @@ const navigation = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   content: {
-    flexGrow: 1,
     padding: theme.spacing(3),
   },
 }))
