@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
 import Img from 'gatsby-image'
 import SocialMedia from '../components/socialmedia'
 import Featured from '../components/featured'
@@ -12,13 +11,13 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const homepageImages = get(this, 'props.data.allContentfulAsset.edges')
     const [site] = get(this, 'props.data.allContentfulSite.edges')
 
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <Img alt={site.node.name} fluid={site.node.heroImage.fluid} />
+        {homepageImages.map((image) => <Img alt={image.node.title} fluid={image.node.fluid} />)}
         {documentToReactComponents(site.node.description.json)}
         <Featured />
         <SocialMedia
@@ -54,16 +53,16 @@ export const pageQuery = graphql`
           title
           facebook
           pinterest
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:fafafa"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+        }
+      }
+    }
+    allContentfulAsset(filter: {description: {regex: "/(\\[homepage\\])/gm"}}) {
+      edges {
+        node {
+          fluid(resizingBehavior: PAD, maxWidth: 1180, maxHeight: 480, background: "rgb:fafafa") {
+            ...GatsbyContentfulFluid_tracedSVG
           }
+          title
         }
       }
     }
