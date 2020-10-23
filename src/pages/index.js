@@ -28,10 +28,6 @@ class RootIndex extends React.Component {
           instagram={site.node.instagram}
           style={{ textAlign: 'center' }}
         />
-        <h2 className="section-headline">Recent articles</h2>
-        {posts.map(({ node }) => {
-          return <ArticlePreview article={node} />
-        })}
       </Layout>
     )
   }
@@ -44,29 +40,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: CROP
-              background: "rgb:ffffff"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            json
-          }
-        }
       }
     }
     allContentfulSite(
