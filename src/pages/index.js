@@ -8,6 +8,7 @@ import SocialMedia from '../components/socialmedia'
 import Featured from '../components/featured'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import HeroBanner from '../components/herobanner'
+import styles from './styles.module.css'
 
 class RootIndex extends React.Component {
   render() {

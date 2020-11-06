@@ -12,13 +12,19 @@ const useStyles = makeStyles((theme) =>
         marginTop: theme.spacing(-11)
     },
     content: {
+      [theme.breakpoints.up('md')]: {
         position: 'absolute',
-        top: '25vh',
+        top: '10vh',
         left: '10vw',
         padding: '24px',
         background: 'rgb(0,0,0,0.75)',
         color: 'white',
         maxWidth: '40vw'
+      },
+      [theme.breakpoints.up('lg')]: {
+        top: '25vh',
+        maxWidth: '30vw'
+      }
     },
   })
 )
