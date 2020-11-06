@@ -11,7 +11,7 @@ class Template extends React.Component {
       rootPath = __PATH_PREFIX__ + `/`
     }
 
-    return <Container>{children}</Container>
+    return <Container location={location}>{children}</Container>
   }
 }
 

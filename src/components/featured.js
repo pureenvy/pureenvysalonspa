@@ -11,6 +11,9 @@ import { makeStyles, createStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
+    root: {
+      marginTop: theme.spacing(6)
+    },
     card: {
       height: '100%',
       textAlign: 'center',
@@ -30,7 +33,7 @@ const Featured = () => {
   const classes = useStyles()
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} className={classes.root}>
       <Grid item xs md={4}>
         <Card className={classes.card}>
           <CardMedia>
