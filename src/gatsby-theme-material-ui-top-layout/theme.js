@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core'
-import { deepPurple, lightGreen } from '@material-ui/core/colors'
+import { lightGreen } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
   palette: {
@@ -11,6 +11,13 @@ const theme = createMuiTheme({
     },
     secondary: lightGreen,
   },
+  typography: {
+    h1: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
+    h2: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
+    h3: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
+    h4: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
+    h5: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
+  }
 })
 
 export default theme

@@ -46,7 +46,7 @@ const navigation = [
   {
     text: 'PE Boutique',
     icon: <HangerIcon />,
-    link: 'http://envysalonblm.mysalononline.com/Booking/?sid=0',
+    link: 'https://pureenvyboutique.maverickthecollection.com/',
     target: '_blank',
   },
   { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
@@ -69,10 +69,13 @@ const useStyles = makeStyles((theme) => ({
   content: {
     padding: theme.spacing(3),
   },
+  appBarHome: {
+    background: 'rgb(106,96,157,0.75)',
+    boxShadow: 'none'
+  }
 }))
 
-function Container(props) {
-  const { window, children } = props
+function Container({ window, children, location: {pathname} }) {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = React.useState(false)
@@ -104,9 +107,11 @@ function Container(props) {
     <div className={classes.root}>
       <Helmet
         onChangeClientState={(newState) => setPageTitle(newState.title)}
-      />
+      >
+        <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet"></link>
+        </Helmet>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="fixed" className={pathname === '/' ? classes.appBarHome : undefined}>
         <Toolbar>
           <IconButton
             color="inherit"

@@ -7,8 +7,7 @@ import Img from 'gatsby-image'
 import SocialMedia from '../components/socialmedia'
 import Featured from '../components/featured'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
+import HeroBanner from '../components/herobanner'
 
 class RootIndex extends React.Component {
   render() {
@@ -22,21 +21,13 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <AliceCarousel 
-          items={homepageImages.map((image) => <div style={{textAlign: 'center'}}><Img alt={image.node.title} fixed={image.node.fixed} /></div>)} 
-          mouseTracking
-          autoPlay
-          infinite
-          autoPlayStrategy="action"
-          autoPlayInterval={3000}
-          responsive={responsive}
-          disableButtonsControls
+        <HeroBanner 
+          Image={<Img alt={homepageImages[0].node.title} fluid={homepageImages[0].node.fluid} />} 
+          Content={documentToReactComponents(site.node.description.json)}
         />
-        {documentToReactComponents(site.node.description.json)}
         <Featured />
         <SocialMedia
           facebook={site.node.facebook}
-          pinterest={site.node.pinterest}
           twitter={site.node.twitter}
           instagram={site.node.instagram}
           style={{ textAlign: 'center' }}
@@ -66,15 +57,17 @@ export const pageQuery = graphql`
           }
           title
           facebook
-          pinterest
         }
       }
     }
-    allContentfulAsset(filter: {description: {regex: "/(\\[homepage\\])/gm"}}) {
+    allContentfulAsset(filter: {contentful_id: {eq: "4jZfW9mCMabbsRFR3TJBw6"}}) {
       edges {
         node {
-          fixed(width:480) {
-            ...GatsbyContentfulFixed_tracedSVG
+          id
+          description
+          title
+          fluid {
+            ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }
