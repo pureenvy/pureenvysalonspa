@@ -41,7 +41,7 @@ const Featured = () => {
           </CardMedia>
           <CardActions>
             <Button className={classes.button} component="a" href="/location">
-              Hours & Location
+              Hours &amp; Location
             </Button>
           </CardActions>
         </Card>
@@ -53,7 +53,7 @@ const Featured = () => {
           </CardMedia>
           <CardActions>
             <Button className={classes.button} component="a" href="/artists">
-              Artists & Staff
+              Meet the Team
             </Button>
           </CardActions>
         </Card>
