@@ -17,16 +17,16 @@ export default function Expirence({ name, price, doesPriceGoUp }) {
   const classes = useStyles()
   return (
     <Paper className={classes.root}>
-        <Grid variant="h4" component="h2" container spacing={2}>
-          <Grid xs={12} md={4} item>
-            {name}
-          </Grid>
-          <Grid xs item>
-            <Typography gutterBottom variant="h5" component="p">
-              ${price} {doesPriceGoUp ? "" : "& up"}
-            </Typography>
-          </Grid>
+      <Grid variant="h4" component="h2" container spacing={2}>
+        <Grid xs={12} md={4} item>
+          {name}
         </Grid>
+        <Grid xs item>
+          <Typography gutterBottom variant="h5" component="p">
+            ${price} {doesPriceGoUp ? '' : '& up'}
+          </Typography>
+        </Grid>
+      </Grid>
     </Paper>
   )
 }

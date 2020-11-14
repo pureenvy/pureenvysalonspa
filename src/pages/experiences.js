@@ -41,7 +41,13 @@ const Services = ({
     <Layout location={location}>
       <Helmet title={`${siteTitle} - Expirences`} />
       {services.map(({ node: service }) => {
-        const comp = <Expirence name={service.name} price={service.price} doesPriceGoUp={service.doesPriceGoUp} />
+        const comp = (
+          <Expirence
+            name={service.name}
+            price={service.price}
+            doesPriceGoUp={service.doesPriceGoUp}
+          />
+        )
 
         if (curCat != service.category) {
           curCat = service.category

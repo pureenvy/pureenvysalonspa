@@ -50,7 +50,11 @@ export const pageQuery = graphql`
           facebook
           instagram
           image {
-            fluid(maxWidth: 350, resizingBehavior: PAD, background: "rgb:ffffff") {
+            fluid(
+              maxWidth: 350
+              resizingBehavior: PAD
+              background: "rgb:ffffff"
+            ) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }

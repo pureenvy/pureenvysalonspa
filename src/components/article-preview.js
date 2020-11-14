@@ -35,7 +35,10 @@ export default ({ article }) => {
         {documentToReactComponents(article.description.json)}
         {article.tags &&
           article.tags.map((tag) => (
-            <><Chip key={tag} label={tag} color="secondary" />&nbsp;</>
+            <>
+              <Chip key={tag} label={tag} color="secondary" />
+              &nbsp;
+            </>
           ))}
       </CardContent>
       <CardActions>

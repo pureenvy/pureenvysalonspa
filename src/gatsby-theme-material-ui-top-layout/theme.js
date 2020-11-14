@@ -17,7 +17,7 @@ const theme = createMuiTheme({
     h3: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
     h4: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
     h5: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
-  }
+  },
 })
 
 export default theme

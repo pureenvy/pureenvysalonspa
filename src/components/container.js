@@ -38,11 +38,11 @@ const navigation = [
     target: '_blank',
   },
   {
-    text: 'Artists',
+    text: 'Meet the Team',
     icon: <PeopleIcon />,
-    link: '/artists',
+    link: '/team',
   },
-  { text: 'Expirences', icon: <MenuBookIcon />, link: '/expirences' },
+  { text: 'Experiences', icon: <MenuBookIcon />, link: '/experiences' },
   {
     text: 'PE Boutique',
     icon: <HangerIcon />,
@@ -55,9 +55,7 @@ const navigation = [
 ]
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-
-  },
+  root: {},
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -68,14 +66,17 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     padding: theme.spacing(3),
+    paddingTop: theme.spacing(6),
   },
   appBarHome: {
-    background: 'rgb(106,96,157,0.75)',
-    boxShadow: 'none'
-  }
+    boxShadow: 'none',
+  },
+  logo: {
+    height: '150px',
+  },
 }))
 
-function Container({ window, children, location: {pathname} }) {
+function Container({ window, children, location: { pathname } }) {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = React.useState(false)
@@ -105,13 +106,18 @@ function Container({ window, children, location: {pathname} }) {
 
   return (
     <div className={classes.root}>
-      <Helmet
-        onChangeClientState={(newState) => setPageTitle(newState.title)}
-      >
-        <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet"></link>
-        </Helmet>
+      <Helmet onChangeClientState={(newState) => setPageTitle(newState.title)}>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap"
+          rel="stylesheet"
+        ></link>
+      </Helmet>
       <CssBaseline />
-      <AppBar position="fixed" className={pathname === '/' ? classes.appBarHome : undefined}>
+      <AppBar
+        color="default"
+        position="fixed"
+        className={pathname === '/' ? classes.appBarHome : undefined}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -122,27 +128,29 @@ function Container({ window, children, location: {pathname} }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" noWrap>
-            {pageTitle}
-          </Typography>
+          <div style={{ textAlign: 'center', width: '100%' }}>
+            <a href="/">
+              <img src="/logo.png" alt={pageTitle} className={classes.logo} />
+            </a>
+          </div>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
+        <Drawer
+          container={container}
+          variant="temporary"
+          anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          {drawer}
+        </Drawer>
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
