@@ -17,13 +17,19 @@ class RootIndex extends React.Component {
     const [site] = get(this, 'props.data.allContentfulSite.edges')
 
     const responsive = {
-      0: { items: 1 }}
+      0: { items: 1 },
+    }
 
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <HeroBanner 
-          Image={<Img alt={homepageImages[0].node.title} fluid={homepageImages[0].node.fluid} />} 
+        <HeroBanner
+          Image={
+            <Img
+              alt={homepageImages[0].node.title}
+              fluid={homepageImages[0].node.fluid}
+            />
+          }
           Content={documentToReactComponents(site.node.description.json)}
         />
         <Featured />
@@ -61,7 +67,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAsset(filter: {contentful_id: {eq: "4jZfW9mCMabbsRFR3TJBw6"}}) {
+    allContentfulAsset(
+      filter: { contentful_id: { eq: "4jZfW9mCMabbsRFR3TJBw6" } }
+    ) {
       edges {
         node {
           id

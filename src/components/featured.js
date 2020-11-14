@@ -12,7 +12,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
-      marginTop: theme.spacing(6)
+      marginTop: theme.spacing(6),
     },
     card: {
       height: '100%',
