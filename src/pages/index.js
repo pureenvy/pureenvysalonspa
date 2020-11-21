@@ -24,14 +24,11 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
         <HeroBanner
-          Image={
-            <Img
-              alt={homepageImages[0].node.title}
-              fluid={homepageImages[0].node.fluid}
-            />
-          }
-          Content={documentToReactComponents(site.node.description.json)}
-        />
+          alt={homepageImages[0].node.title}
+          fluid={homepageImages[0].node.fluid}
+        >
+          {documentToReactComponents(site.node.description.json)}
+        </HeroBanner>
         <Featured />
         <SocialMedia
           facebook={site.node.facebook}
@@ -64,12 +61,11 @@ export const pageQuery = graphql`
           }
           title
           facebook
+          instagram
         }
       }
     }
-    allContentfulAsset(
-      filter: { contentful_id: { eq: "4jZfW9mCMabbsRFR3TJBw6" } }
-    ) {
+    allContentfulAsset(filter: { description: { eq: "[home-page]" } }) {
       edges {
         node {
           id
