@@ -67,12 +67,19 @@ const useStyles = makeStyles((theme) => ({
   content: {
     padding: theme.spacing(3),
     paddingTop: theme.spacing(6),
+    [theme.breakpoints.up('md')]: {
+      paddingTop: theme.spacing(14),
+    }
   },
   appBarHome: {
     boxShadow: 'none',
   },
   logo: {
     height: '150px',
+    [theme.breakpoints.down('sm')]: {
+      height: '60px',
+      marginTop: theme.spacing(1),
+    },
   },
 }))
 

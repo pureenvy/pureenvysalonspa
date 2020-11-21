@@ -2,8 +2,9 @@ import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import React from 'react'
 import { graphql } from 'gatsby'
-import Typography from '@material-ui/core/Typography'
+import { Typography } from '@material-ui/core'
 import Expirence from '../components/expirence'
+import HeroBanner from '../components/herobanner'
 
 const categorySort = {
   Hair: 0,
@@ -21,6 +22,7 @@ const Services = ({
       siteMetadata: { title: siteTitle },
     },
     allContentfulService: { edges: services },
+    allContentfulAsset: { edges: heroimages },
   },
 }) => {
   services.sort(function (a, b) {
@@ -40,6 +42,11 @@ const Services = ({
   return (
     <Layout location={location}>
       <Helmet title={`${siteTitle} - Expirences`} />
+      <HeroBanner
+        alt={heroimages[0].node.title}
+        fluid={heroimages[0].node.fluid}
+        mini
+      />
       {services.map(({ node: service }) => {
         const comp = (
           <Expirence
@@ -83,6 +90,18 @@ export const pageQuery = graphql`
           category
           price
           doesPriceGoUp
+        }
+      }
+    }
+    allContentfulAsset(filter: { description: { eq: "[experiences-page]" } }) {
+      edges {
+        node {
+          id
+          description
+          title
+          fluid {
+            ...GatsbyContentfulFluid_tracedSVG
+          }
         }
       }
     }
