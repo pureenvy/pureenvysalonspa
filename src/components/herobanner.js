@@ -16,10 +16,13 @@ const useStyles = (mini) =>
         marginTop: theme.spacing(-3),
         [theme.breakpoints.down('sm')]: {
           marginTop: theme.spacing(-5),
-          maxHeight: null
         },
         [theme.breakpoints.up('lg')]: {
           maxHeight: mini && '400px',
+        },
+        [theme.breakpoints.down('xs')]: {
+          marginTop: theme.spacing(-5),
+          maxHeight: '100vh',
         },
       },
       content: {
@@ -40,15 +43,9 @@ const useStyles = (mini) =>
       },
       miniImage: {
         position: 'relative',
-        top: '-300px',
-        [theme.breakpoints.down('md')]: {
-          top: '-275px',
-        },
-        [theme.breakpoints.down('sm')]: {
-          top: '-125px'
-        },
+        bottom: 'calc(25vw)',
         [theme.breakpoints.down('xs')]: {
-          top: 0
+          bottom: 0,
         },
       },
     })
