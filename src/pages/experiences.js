@@ -45,7 +45,6 @@ const Services = ({
       <HeroBanner
         alt={heroimages[0].node.title}
         fluid={heroimages[0].node.fluid}
-        mini
       />
       {services.map(({ node: service }) => {
         const comp = (
