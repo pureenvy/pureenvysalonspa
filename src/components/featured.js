@@ -52,7 +52,7 @@ const Featured = () => {
             <BrushIcon className={classes.icon} />
           </CardMedia>
           <CardActions>
-            <Button className={classes.button} component="a" href="/artists">
+            <Button className={classes.button} component="a" href="/team">
               Meet the Team
             </Button>
           </CardActions>
