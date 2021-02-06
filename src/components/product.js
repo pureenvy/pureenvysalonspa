@@ -23,13 +23,10 @@ export default function Product({ name, url, logo, images, description }) {
             <Typography gutterBottom variant="h4" component="h2">
               {name}
             </Typography>
-            <Typography gutterBottom variant="h6" component="h3">
-              {url}
-            </Typography>
             {description}
           </Grid>
           <Grid xs={12} md={3} item>
-            {logo}
+            {url ? <a target="_blank" href={url}>{logo}</a> : logo}
           </Grid>
         </Grid>
       </CardContent>

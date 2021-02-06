@@ -20,7 +20,7 @@ const Products = ({
     {products.map(({ node: product }) => (
       <Product
         name={product.name}
-        url={products.url}
+        url={product.url}
         description={documentToReactComponents(product.description.json)}
         logo={<Img alt={product.name} fluid={product.logo.fluid} />}
       />
