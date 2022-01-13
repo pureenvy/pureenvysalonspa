@@ -14,6 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import MenuBookIcon from '@material-ui/icons/MenuBook'
 import MenuIcon from '@material-ui/icons/Menu'
 import PeopleIcon from '@material-ui/icons/People'
+import BookIcon from '@material-ui/icons/Book'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
 import ExploreIcon from '@material-ui/icons/Explore'
 import PolicyIcon from '@material-ui/icons/Policy'
@@ -49,6 +50,7 @@ const navigation = [
     link: 'https://pureenvyboutique.maverickthecollection.com/',
     target: '_blank',
   },
+  { text: 'Weddings', icon: <BookIcon />, link: '/weddings' },
   { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
   { text: 'Location & Hours', icon: <ExploreIcon />, link: '/location' },
   { text: 'Policies', icon: <PolicyIcon />, link: '/policies' },
