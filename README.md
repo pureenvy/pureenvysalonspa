@@ -1,6 +1,6 @@
-# gatsby-contentful-starter
+# Pure Envy Salon Website
 
-Gatsby [Contentful](https://www.contentful.com) starter for creating a blog
+Created with Gatsby [Contentful](https://www.contentful.com) starter for creating a blog
 
 ![The index page of the starter blog](https://rawgit.com/contentful-userland/gatsby-contentful-starter/master/screenshot.jpg "The index page of the starter blog")
 
