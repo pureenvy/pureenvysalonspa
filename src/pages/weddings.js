@@ -36,7 +36,7 @@ const Weddings = ({
       else return undefined
     })}
     <p align="center">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfT2orT1tFwVzdu3WeXQAeRVnEgh9SOOzmmlKKSK4J5AXBexA/viewform?embedded=true" width="640" height="1800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfT2orT1tFwVzdu3WeXQAeRVnEgh9SOOzmmlKKSK4J5AXBexA/viewform?embedded=true" width="640" height="1800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </p>
   </Layout>
 )
