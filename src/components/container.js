@@ -23,6 +23,8 @@ import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import HangerIcon from './icons/hanger'
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard'
+import Button from '@material-ui/core/Button'
 
 const drawerWidth = 280
 
@@ -71,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(6),
     [theme.breakpoints.up('md')]: {
       paddingTop: theme.spacing(14),
-    }
+    },
   },
   appBarHome: {
     boxShadow: 'none',
@@ -106,6 +108,21 @@ function Container({ window, children, location: { pathname } }) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
+        <ListItem>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            component="a"
+            startIcon={<CardGiftcardIcon />}
+            href={
+              'https://www.thegiftcardcafe.com/cart/index.php?storeID=21297'
+            }
+            target={'_blank'}
+          >
+            Purchase Gift Card
+          </Button>
+        </ListItem>
       </List>
     </div>
   )
@@ -116,10 +133,12 @@ function Container({ window, children, location: { pathname } }) {
   return (
     <div className={classes.root}>
       <Helmet onChangeClientState={(newState) => setPageTitle(newState.title)}>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
           rel="stylesheet"
-        ></link>
+        />
       </Helmet>
       <CssBaseline />
       <AppBar

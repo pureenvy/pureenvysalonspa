@@ -26,7 +26,13 @@ export default function Product({ name, url, logo, images, description }) {
             {description}
           </Grid>
           <Grid xs={12} md={3} item>
-            {url ? <a target="_blank" href={url}>{logo}</a> : logo}
+            {url ? (
+              <a target="_blank" href={url}>
+                {logo}
+              </a>
+            ) : (
+              logo
+            )}
           </Grid>
         </Grid>
       </CardContent>
