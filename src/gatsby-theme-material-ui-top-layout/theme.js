@@ -12,11 +12,11 @@ const theme = createMuiTheme({
     secondary: lightGreen,
   },
   typography: {
-    h1: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
-    h2: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
-    h3: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
-    h4: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
-    h5: { fontFamily: `'Liu Jian Mao Cao', cursive;` },
+    h1: { fontFamily: `'Shadows Into Light Two', cursive;` },
+    h2: { fontFamily: `'Shadows Into Light Two', cursive;` },
+    h3: { fontFamily: `'Shadows Into Light Two', cursive;` },
+    h4: { fontFamily: `'Shadows Into Light Two', cursive;` },
+    h5: { fontFamily: `'Shadows Into Light Two', cursive;` },
   },
 })
 

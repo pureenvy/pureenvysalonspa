@@ -18,7 +18,7 @@ const Weddings = ({
       siteMetadata: { title: siteTitle },
     },
     allContentfulPageContent: { edges: pageContents },
-    allContentfulAsset: { edges: weddingImages }
+    allContentfulAsset: { edges: weddingImages },
   },
 }) => (
   <Layout location={location}>
@@ -36,7 +36,16 @@ const Weddings = ({
       else return undefined
     })}
     <p align="center">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfT2orT1tFwVzdu3WeXQAeRVnEgh9SOOzmmlKKSK4J5AXBexA/viewform?embedded=true" width="640" height="1800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfT2orT1tFwVzdu3WeXQAeRVnEgh9SOOzmmlKKSK4J5AXBexA/viewform?embedded=true"
+        width="640"
+        height="1800"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+      >
+        Loading…
+      </iframe>
     </p>
   </Layout>
 )
@@ -62,16 +71,16 @@ export const pageQuery = graphql`
       }
     }
     allContentfulAsset(filter: { description: { eq: "[wedding-page]" } }) {
-        edges {
-          node {
-            id
-            description
-            title
-            fluid {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+      edges {
+        node {
+          id
+          description
+          title
+          fluid {
+            ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }
+    }
   }
 `
