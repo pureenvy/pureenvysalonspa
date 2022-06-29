@@ -38,7 +38,6 @@ const navigation = [
     text: 'Schedule an Appointment',
     icon: <EventIcon />,
     link: '/appointments',
-    target: '_blank',
   },
   {
     text: 'Meet the Team',

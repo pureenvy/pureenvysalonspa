@@ -36,7 +36,6 @@ const featuredItems = (classes) => [
     href: '/appointments',
     text: 'Schedule an Appointment',
     icon: <ScheduleIcon className={classes.icon} />,
-    target: '_blank',
   },
   {
     href: '/https://www.thegiftcardcafe.com/cart/index.php?storeID=21297',
