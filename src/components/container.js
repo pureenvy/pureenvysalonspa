@@ -37,8 +37,7 @@ const navigation = [
   {
     text: 'Schedule an Appointment',
     icon: <EventIcon />,
-    link: 'http://envysalonblm.mysalononline.com/Booking/?sid=0',
-    target: '_blank',
+    link: '/appointments',
   },
   {
     text: 'Meet the Team',

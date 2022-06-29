@@ -33,10 +33,9 @@ const useStyles = makeStyles((theme) =>
 
 const featuredItems = (classes) => [
   {
-    href: 'http://envysalonblm.mysalononline.com/Booking/?sid=0',
+    href: '/appointments',
     text: 'Schedule an Appointment',
     icon: <ScheduleIcon className={classes.icon} />,
-    target: '_blank',
   },
   {
     href: '/https://www.thegiftcardcafe.com/cart/index.php?storeID=21297',
