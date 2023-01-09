@@ -1,9 +1,15 @@
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
 import AppBar from '@material-ui/core/AppBar'
+import BookIcon from '@material-ui/icons/Book'
+import Button from '@material-ui/core/Button'
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
+import EventIcon from '@material-ui/icons/Event'
+import ExploreIcon from '@material-ui/icons/Explore'
+import HangerIcon from './icons/hanger'
 import { Helmet } from 'react-helmet'
 import HomeIcon from '@material-ui/icons/Home'
 import IconButton from '@material-ui/core/IconButton'
@@ -11,20 +17,14 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import LocalMallIcon from '@material-ui/icons/LocalMall'
 import MenuBookIcon from '@material-ui/icons/MenuBook'
 import MenuIcon from '@material-ui/icons/Menu'
 import PeopleIcon from '@material-ui/icons/People'
-import BookIcon from '@material-ui/icons/Book'
-import LocalMallIcon from '@material-ui/icons/LocalMall'
-import ExploreIcon from '@material-ui/icons/Explore'
 import PolicyIcon from '@material-ui/icons/Policy'
-import EventIcon from '@material-ui/icons/Event'
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import HangerIcon from './icons/hanger'
-import CardGiftcardIcon from '@material-ui/icons/CardGiftcard'
-import Button from '@material-ui/core/Button'
 
 const drawerWidth = 280
 
@@ -45,12 +45,6 @@ const navigation = [
     link: '/team',
   },
   { text: 'Experiences', icon: <MenuBookIcon />, link: '/experiences' },
-  {
-    text: 'PE Boutique',
-    icon: <HangerIcon />,
-    link: 'https://pureenvyboutique.maverickthecollection.com/',
-    target: '_blank',
-  },
   { text: 'Weddings', icon: <BookIcon />, link: '/weddings' },
   { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
   { text: 'Location & Hours', icon: <ExploreIcon />, link: '/location' },
