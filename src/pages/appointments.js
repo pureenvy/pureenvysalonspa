@@ -31,7 +31,7 @@ const Appointments = ({
       <Button
         component="a"
         variant="contained"
-        href="http://envysalonblm.mysalononline.com/Booking/?sid=0"
+        href="https://login.meevo.com/pureenvysalonspa/ob?locationId=500727"
         target="_blank"
       >
         Continue
