@@ -38,7 +38,7 @@ const featuredItems = (classes) => [
     icon: <ScheduleIcon className={classes.icon} />,
   },
   {
-    href: '/https://www.thegiftcardcafe.com/cart/index.php?storeID=21297',
+    href: '/https://na2.meevo.com/EgiftApp/home?tenantId=500570',
     text: 'Purchase Gift Card',
     icon: <CardGiftcardIcon className={classes.icon} />,
   },
