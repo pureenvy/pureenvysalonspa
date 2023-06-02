@@ -9,7 +9,6 @@ import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
 import EventIcon from '@material-ui/icons/Event'
 import ExploreIcon from '@material-ui/icons/Explore'
-import HangerIcon from './icons/hanger'
 import { Helmet } from 'react-helmet'
 import HomeIcon from '@material-ui/icons/Home'
 import IconButton from '@material-ui/core/IconButton'
@@ -22,6 +21,7 @@ import MenuBookIcon from '@material-ui/icons/MenuBook'
 import MenuIcon from '@material-ui/icons/Menu'
 import PeopleIcon from '@material-ui/icons/People'
 import PolicyIcon from '@material-ui/icons/Policy'
+import JobIcon from '@material-ui/icons/Work'
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -49,6 +49,7 @@ const navigation = [
   { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
   { text: 'Location & Hours', icon: <ExploreIcon />, link: '/location' },
   { text: 'Policies', icon: <PolicyIcon />, link: '/policies' },
+  { text: 'Job Openings', icon: <JobIcon />, link: '/jobs' },
 ]
 
 const useStyles = makeStyles((theme) => ({
@@ -108,9 +109,7 @@ function Container({ window, children, location: { pathname } }) {
             className={classes.button}
             component="a"
             startIcon={<CardGiftcardIcon />}
-            href={
-              'https://na2.meevo.com/EgiftApp/home?tenantId=500570'
-            }
+            href={'https://na2.meevo.com/EgiftApp/home?tenantId=500570'}
             target={'_blank'}
           >
             Purchase Gift Card
