@@ -49,7 +49,7 @@ const navigation = [
   { text: 'Products', icon: <LocalMallIcon />, link: '/products' },
   { text: 'Location & Hours', icon: <ExploreIcon />, link: '/location' },
   { text: 'Policies', icon: <PolicyIcon />, link: '/policies' },
-  { text: 'Job Openings', icon: <JobIcon />, link: '/jobs' },
+  { text: 'Employment Opportunities', icon: <JobIcon />, link: '/jobs' },
 ]
 
 const useStyles = makeStyles((theme) => ({
