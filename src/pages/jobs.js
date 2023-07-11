@@ -27,12 +27,12 @@ const Jobs = ({
       fluid={jobImages[0].node.fluid}
       mini
     ></HeroBanner>
-    <Helmet title={`${siteTitle} - Job Openings`} />
+    <Helmet title={`${siteTitle} - Employment Opportunities`} />
     <Typography gutterBottom variant="h2" component="h2">
       Job Openings
     </Typography>
     {pageContents.map(({ node: page }) => {
-      if (page.name === 'Job Openings')
+      if (page.name === 'Employment Opportunities')
         return documentToReactComponents(page.content.json, options)
       else return undefined
     })}
