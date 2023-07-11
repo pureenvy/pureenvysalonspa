@@ -29,7 +29,7 @@ const Jobs = ({
     ></HeroBanner>
     <Helmet title={`${siteTitle} - Employment Opportunities`} />
     <Typography gutterBottom variant="h2" component="h2">
-      Job Openings
+      Employment Opportunities
     </Typography>
     {pageContents.map(({ node: page }) => {
       if (page.name === 'Employment Opportunities')
